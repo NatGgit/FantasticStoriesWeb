@@ -16,6 +16,7 @@ public class Issue {
     private String issueNumber;
     // niezbyt bezpieczne ustawienie cascade na tym pozwalający usuwać zależne encje
     // fetch type eager oznacza, że będą ściągnięte wraz z issue od razu wszystkie stories
+    // nie tworzy tej kolumny w bazie
     @OneToMany(mappedBy = "issue", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private List<Story> storyList;
 

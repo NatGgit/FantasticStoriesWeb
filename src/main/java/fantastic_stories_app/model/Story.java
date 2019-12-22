@@ -24,6 +24,7 @@ public class Story {
 
     @JsonIgnore
     // usunięcie story spowoduje usunięcie review
+    //nie tworzy tej kolumny w bazie
     @OneToOne(mappedBy = "story", cascade = CascadeType.ALL)
     private Review review;
 

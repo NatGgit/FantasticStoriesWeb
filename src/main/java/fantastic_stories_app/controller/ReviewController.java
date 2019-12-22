@@ -18,22 +18,25 @@ public class ReviewController {
     public ReviewController() {
     }
 
+    // może nie po id, tylko po tytule opowiadania, z którym jest złączone?
     @GetMapping("/get")
-    public Issue getIssueById(int id) throws NoSuchElementException {
+    public Issue getReviewById(int id) throws NoSuchElementException {
         return null;
     }
 
     @GetMapping("/getAll")
-    public List getIssueList() {
+    public List getReviewList() {
         return null;
     }
 
 
+    // po samym numerze issue?
     @GetMapping("/getFromIssue")
-    public List getStoriesFromSpecificIssue(Issue issue) throws NoSuchElementException{
+    public List getReviewsFromSpecificIssue(Issue issue) throws NoSuchElementException{
         return null;
     }
 
+    // po samym nazwisku autora?
     @GetMapping("/getByAuthor")
     public List getReviewsBySpecificAuthor(Author author) throws NoSuchElementException {
         return null;
@@ -52,6 +55,7 @@ public class ReviewController {
         return null;
     }
 
+    // być może tu trzeba stworzyć oddzielny request i response
     @DeleteMapping("/delete")
     public boolean deleteReview(Review review)throws NoSuchElementException {
         return false;

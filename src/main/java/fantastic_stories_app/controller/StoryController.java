@@ -23,6 +23,7 @@ public class StoryController {
 //        storyList.add(new Story("Pieśń Ognia", "(Song of Fire)"));
     }
 
+    // może raczej wyszukiwanie po tytule?
     @GetMapping("/get")
     public Story getStoryById(int id) throws NoSuchElementException {
         return null;
@@ -33,14 +34,15 @@ public class StoryController {
         return null;
     }
 
-
+// może raczej po numerze issue?
     @GetMapping("/getFromIssue")
     public List getStoriesFromSpecificIssue(int issueId) throws NoSuchElementException {
         return null;
     }
 
+    // może raczej po nazwisku autora?
     @GetMapping("/getByAuthor")
-    public List getAuthorStories(int authorId) throws NoSuchElementException{
+    public List getStoriesBySpecificAuthor(int authorId) throws NoSuchElementException{
         return null;
     }
 }

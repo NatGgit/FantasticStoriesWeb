@@ -21,6 +21,7 @@ public class IssueController {
 //        issueList.add(new Issue( 2019, "special issue no 1"));
     }
 
+    //może lepiej zmienić to na szukanie po numerze issue?
     @GetMapping("/get")
     public Issue getIssueById(int id) throws NoSuchElementException {
         return null;

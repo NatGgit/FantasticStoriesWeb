@@ -22,6 +22,7 @@ public class AuthorController {
 //        authorList.add(new Author( "Rachel ", "Pollack"));
     }
 
+    // może zamiast id lepiej wyszukiwać autorów po nazwisku
     @GetMapping("/get")
     public Author getAuthorById(int id) throws NoSuchElementException {
         return null;

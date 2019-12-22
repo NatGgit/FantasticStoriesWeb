@@ -17,6 +17,7 @@ public class Author {
 
     // niezbyt bezpieczne ustawienie cascade na tym pozwalający usuwać zależne encje
     // fetch type eager oznacza, że będą ściągnięte wraz z autorem od razu wszystkie opowiadania
+    //nie tworzy tej kolumny w bazie
     @OneToMany(mappedBy = "author", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private List<Story> storyList;
 
