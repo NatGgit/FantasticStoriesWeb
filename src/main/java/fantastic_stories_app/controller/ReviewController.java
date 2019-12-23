@@ -1,11 +1,8 @@
 package fantastic_stories_app.controller;
 
-import fantastic_stories_app.api.request.AddReviewRequest;
-import fantastic_stories_app.api.response.AddReviewResponse;
 import fantastic_stories_app.model.Author;
 import fantastic_stories_app.model.Issue;
 import fantastic_stories_app.model.Review;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -43,16 +40,14 @@ public class ReviewController {
     }
 
     @PostMapping(value = "/add", produces = "application/json")
-    public ResponseEntity<AddReviewResponse> addReview(
-            @RequestBody AddReviewRequest request){
-        return null;
+    public boolean addReview(Review review){
+        return false;
     }
 
     // być może tu trzeba stworzyć oddzielny request i response
     @PutMapping(value = "/update", produces = "application/json")
-    public ResponseEntity<AddReviewResponse> updateReview(
-            @RequestBody AddReviewRequest request){
-        return null;
+    public boolean updateReview(Review review){
+        return false;
     }
 
     // być może tu trzeba stworzyć oddzielny request i response

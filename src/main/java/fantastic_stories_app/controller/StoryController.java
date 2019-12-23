@@ -23,6 +23,11 @@ public class StoryController {
 //        storyList.add(new Story("Pieśń Ognia", "(Song of Fire)"));
     }
 
+    @RequestMapping("/")
+    public String indexGet() {
+        return "all_stories_list";
+    }
+
     // może raczej wyszukiwanie po tytule?
     @GetMapping("/get")
     public Story getStoryById(int id) throws NoSuchElementException {

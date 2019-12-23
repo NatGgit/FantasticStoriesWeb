@@ -1,4 +1,7 @@
 package fantastic_stories_app.service;
 
-public interface AuthorService {
+import fantastic_stories_app.repository.AuthorRepository;
+
+public class AuthorService {
+    private AuthorRepository authorRepository;
 }
