@@ -13,7 +13,7 @@ public class Author {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private int id;
     private String firstName;
-    private String secondName;
+    private String lastName;
 
     // niezbyt bezpieczne ustawienie cascade na tym pozwalający usuwać zależne encje
     // fetch type eager oznacza, że będą ściągnięte wraz z autorem od razu wszystkie opowiadania

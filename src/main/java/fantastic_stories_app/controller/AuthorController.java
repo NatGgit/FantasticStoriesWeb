@@ -23,21 +23,21 @@ public class AuthorController {
 //        authorList.add(new Author( "Rachel ", "Pollack"));
     }
 
+    //TODO: połączyć z frontendem
+
     @GetMapping("/getById")
     public Author getAuthorById(int id) throws NoSuchElementException {
-        return null;
+        return authorService.getAuthorById(id);
     }
 
     @GetMapping("/getByName")
     public Author getAuthorByName(String lastName) throws NoSuchElementException {
-        return null;
+        return authorService.getAuthorByName(lastName);
     }
 
     @GetMapping("/getAll")
-    public List getAuthorList(){
-        return null;
+    public List<Author> getAllAuthors(){
+        return authorService.getAll();
     }
-
-
 
 }

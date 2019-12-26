@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface AuthorRepository extends PagingAndSortingRepository<Author, Integer> {
+    Author findByLastName(String lastName);
 }

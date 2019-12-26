@@ -14,10 +14,12 @@ public class Story {
     private String title;
     private String originalTitle;
 
+    // nie wiem czemu nazwy kolumn podkreśla na czerwono
     @ManyToOne
     @JoinColumn(name = "author_id", referencedColumnName = "id")
     private Author author;
 
+    // nie wiem czemu nazwy kolumn podkreśla na czerwono
     @ManyToOne
     @JoinColumn(name = "issue_id", referencedColumnName = "id")
     private Issue issue;
