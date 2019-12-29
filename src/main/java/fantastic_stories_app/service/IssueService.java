@@ -18,7 +18,7 @@ public class IssueService {
     }
 
     public Issue getIssueByNumber(String issueNumber) {
-        return issueRepository.findByIssueNumber(issueNumber);
+        return issueRepository.findByNumber(issueNumber);
     }
 
     // ewentualnie zwracać Page i sortować po kolejności

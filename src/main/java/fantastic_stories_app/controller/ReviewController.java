@@ -39,17 +39,11 @@ public class ReviewController {
         return reviewService.getAllReviews();
     }
 
-    // po samym numerze issue?
-    @GetMapping("/getFromIssue")
-    public List<Review> getReviewsFromSpecificIssue(Issue issue) throws NoSuchElementException{
-        return reviewService.getReviewsFromSpecificIssue(issue);
+    @GetMapping("/getAllByRating")
+    public List<Review> getAllReviewsByRating(int rating) {
+        return reviewService.getAllReviewsByRating(rating);
     }
 
-    // po samym nazwisku autora?
-    @GetMapping("/getByAuthor")
-    public List<Review> getReviewsBySpecificAuthor(Author author) throws NoSuchElementException {
-        return reviewService.getReviewsBySpecificAuthor(author);
-    }
 
     @PostMapping(value = "/add", produces = "application/json")
     public Review addReview(Review review){

@@ -29,8 +29,8 @@ public class StoryService {
         return storyRepository.findAllByAuthorId(authorId);
     }
 
-    public List<Story> getStoriesByAuthorName(String authorName){
-        return storyRepository.findAllByAuthorName(authorName);
+    public List<Story> getStoriesByAuthorName(String authorLastName){
+        return storyRepository.findAllByAuthorLastName(authorLastName);
     }
 
     // ewentualnie zwrócić page i sortować

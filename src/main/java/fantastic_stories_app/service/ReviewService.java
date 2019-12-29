@@ -1,7 +1,5 @@
 package fantastic_stories_app.service;
 
-import fantastic_stories_app.model.Author;
-import fantastic_stories_app.model.Issue;
 import fantastic_stories_app.model.Review;
 import fantastic_stories_app.repository.ReviewRepository;
 
@@ -27,12 +25,8 @@ public class ReviewService {
         return (List<Review>) reviewRepository.findAll();
     }
 
-    public List<Review> getReviewsFromSpecificIssue(Issue issue){
-        return reviewRepository.findAllByIssue(issue);
-    }
-
-    public List<Review> getReviewsBySpecificAuthor(Author author){
-        return reviewRepository.findAllByAuthor(author);
+    public List<Review> getAllReviewsByRating(int rating){
+        return reviewRepository.findAllByRating(rating);
     }
 
     public Review addReview(Review review){

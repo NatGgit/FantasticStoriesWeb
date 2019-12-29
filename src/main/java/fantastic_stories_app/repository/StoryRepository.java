@@ -8,9 +8,9 @@ import java.util.List;
 public interface StoryRepository extends PagingAndSortingRepository<Story, Integer> {
     Story findByTitle (String storyTitle);
     List<Story> findAllByIssueId (int issueId);
-    //TODO: sprawdzić jak dobrać się do issue number
     List<Story> findAllByIssueNumber (String issueNumber);
     List<Story> findAllByAuthorId (int authorId);
-    //TODO: sprawdzić jak dobrać się do author name
-    List<Story> findAllByAuthorName(String authorName);
+    List<Story> findAllByAuthorLastName(String authorLastName);
+    // żeby dostać się do pól powiązanej tabeli musimy użyć dokładnie takich samych nazw jak w tej tabeli,
+    // czyli find by + nazwa tabeli + nazwa kolumny
 }

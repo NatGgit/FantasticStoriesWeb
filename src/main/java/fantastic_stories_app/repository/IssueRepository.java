@@ -6,6 +6,6 @@ import org.springframework.data.repository.PagingAndSortingRepository;
 import java.util.List;
 
 public interface IssueRepository extends PagingAndSortingRepository<Issue, Integer> {
-    Issue findByIssueNumber(String issueNumber);
+    Issue findByNumber(String number);
     List<Issue> findAllByPublicationYear(int yearOfPublication);
 }
