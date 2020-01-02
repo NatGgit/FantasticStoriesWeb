@@ -1,18 +1,19 @@
 package fantastic_stories_app.controller;
 
 import fantastic_stories_app.model.Issue;
+import fantastic_stories_app.service.IssueService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
 
 @RestController
 @RequestMapping("issue")
 public class IssueController {
-    private List<Issue> issueList;
+    private IssueService issueService;
+    //private List<Issue> issueList;
 
     public IssueController(){
 //        issueList = new ArrayList<>();
@@ -21,15 +22,26 @@ public class IssueController {
 //        issueList.add(new Issue( 2019, "special issue no 1"));
     }
 
-    //może lepiej zmienić to na szukanie po numerze issue?
-    @GetMapping("/get")
+    //TODO: połączyć z frontendem
+
+    @GetMapping("/getById")
     public Issue getIssueById(int id) throws NoSuchElementException {
-        return null;
+        return issueService.getIssueById(id);
+    }
+
+    @GetMapping("/getByNumber")
+    public Issue getIssueByNumber(String issueNumber) throws NoSuchElementException {
+        return issueService.getIssueByNumber(issueNumber);
+    }
+
+    @GetMapping("/getAllFromYear")
+    public List<Issue> getIssuesFromYear(int yearOfPublication) throws NoSuchElementException {
+        return issueService.getIssueFromYear(yearOfPublication);
     }
 
     @GetMapping("/getAll")
-    public List getIssueList(){
-        return null;
+    public List<Issue> getIssueList(){
+        return issueService.getAll();
     }
 
 

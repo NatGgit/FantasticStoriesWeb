@@ -1,10 +1,45 @@
 package fantastic_stories_app.service;
 
-import fantastic_stories_app.api.request.AddReviewRequest;
-import fantastic_stories_app.api.response.AddReviewResponse;
-import org.springframework.http.ResponseEntity;
+import fantastic_stories_app.model.Review;
+import fantastic_stories_app.repository.ReviewRepository;
 
-public interface ReviewService {
-    ResponseEntity<AddReviewResponse> addReview (AddReviewRequest request);
+import java.util.List;
+
+public class ReviewService {
+    private ReviewRepository reviewRepository;
+
+    public Review getReviewById(int reviewId){
+        return reviewRepository.findOne(reviewId);
+    }
+
+    public Review getReviewByStoryId(int storyId){
+        return reviewRepository.findOne(storyId);
+    }
+
+    public Review getReviewByStoryTitle(String storyTitle){
+        return reviewRepository.findByStoryTitle(storyTitle);
+    }
+
+    //ewentualnie może zwracać posortowane wyniki
+    public List<Review> getAllReviews(){
+        return (List<Review>) reviewRepository.findAll();
+    }
+
+    public List<Review> getAllReviewsByRating(int rating){
+        return reviewRepository.findAllByRating(rating);
+    }
+
+    public Review addReview(Review review){
+        return reviewRepository.save(review);
+    }
+
+    // TODO: uzupełnić logikę
+    public Review updateReview(Review review){
+        return reviewRepository.save(review);
+    }
+
+    public void deleteReview(Review review){
+        reviewRepository.delete(review);
+    }
 
 }

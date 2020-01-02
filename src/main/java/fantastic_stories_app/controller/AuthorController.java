@@ -1,18 +1,19 @@
 package fantastic_stories_app.controller;
 
 import fantastic_stories_app.model.Author;
+import fantastic_stories_app.service.AuthorService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
 
 @RestController
 @RequestMapping("author")
 public class AuthorController {
-    private List<Author> authorList;
+    private AuthorService authorService;
+    //private List<Author> authorList;
 
     public AuthorController(){
 //        authorList = new ArrayList<>();
@@ -22,17 +23,21 @@ public class AuthorController {
 //        authorList.add(new Author( "Rachel ", "Pollack"));
     }
 
-    // może zamiast id lepiej wyszukiwać autorów po nazwisku
-    @GetMapping("/get")
+    //TODO: połączyć z frontendem
+
+    @GetMapping("/getById")
     public Author getAuthorById(int id) throws NoSuchElementException {
-        return null;
+        return authorService.getAuthorById(id);
+    }
+
+    @GetMapping("/getByName")
+    public Author getAuthorByName(String lastName) throws NoSuchElementException {
+        return authorService.getAuthorByName(lastName);
     }
 
     @GetMapping("/getAll")
-    public List getAuthorList(){
-        return null;
+    public List<Author> getAllAuthors(){
+        return authorService.getAll();
     }
-
-
 
 }

@@ -16,5 +16,6 @@ public class Review {
 
     //usunięcie review nie spowoduje usunięcia story
     @OneToOne(cascade = CascadeType.PERSIST)
+    @JoinColumn() //(name = "story_id") - musiałam zakomentować bo wyrzucało błąd - nie widziało tej kolumny
     private Story story;
 }

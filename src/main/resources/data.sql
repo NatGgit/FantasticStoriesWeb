@@ -1,4 +1,4 @@
-INSERT INTO author (id, first_name, second_name) VALUES
+INSERT INTO author (id, first_name, last_name) VALUES
 (1, 'Łukasz','Malinowski'),
 (2, 'Krzysztof','Rewiuk'),
 (3, 'Beatrycze','Nowicka'),
@@ -11,7 +11,7 @@ INSERT INTO author (id, first_name, second_name) VALUES
 (10, 'Mark','Lawrence'),
 (11, 'Maciej','Jesionowski');
 
-INSERT INTO issue (id, issue_number, publication_year) VALUES
+INSERT INTO issue (id, number, publication_year) VALUES
 (1, '05/2019', 2019),
 (2, '04/2019', 2019);
 

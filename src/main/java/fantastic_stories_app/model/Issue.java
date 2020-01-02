@@ -13,7 +13,7 @@ public class Issue {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private int id;
     private int publicationYear;
-    private String issueNumber;
+    private String number;
     // niezbyt bezpieczne ustawienie cascade na tym pozwalający usuwać zależne encje
     // fetch type eager oznacza, że będą ściągnięte wraz z issue od razu wszystkie stories
     // nie tworzy tej kolumny w bazie
