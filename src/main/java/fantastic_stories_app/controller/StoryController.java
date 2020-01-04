@@ -2,9 +2,12 @@ package fantastic_stories_app.controller;
 
 import fantastic_stories_app.model.Story;
 import fantastic_stories_app.service.StoryService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -12,6 +15,7 @@ import java.util.NoSuchElementException;
 @RestController
 @RequestMapping("story")
 public class StoryController {
+    @Autowired
     private StoryService storyService;
     //private List<Story> storyList;
 
@@ -22,8 +26,6 @@ public class StoryController {
 //        storyList.add(new Story("Zamówienie na steki", "(A Series of Steakes)"));
 //        storyList.add(new Story("Pieśń Ognia", "(Song of Fire)"));
     }
-
-    //TODO: połączyć z frontendem
 
     @GetMapping("/getById")
     public Story getStoryById(int storyId) throws NoSuchElementException {
@@ -56,8 +58,9 @@ public class StoryController {
     }
 
     @GetMapping("/getAll")
-    public List<Story> getAllStories() {
-        return storyService.getAllStories();
+    public ModelAndView getAllStories(Model model) {
+        List<Story> storyList = storyService.getAllStories();
+        return new ModelAndView("all_stories_list", "list", storyList);
     }
 
 }

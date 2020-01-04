@@ -2,10 +2,14 @@ package fantastic_stories_app.service;
 
 import fantastic_stories_app.model.Story;
 import fantastic_stories_app.repository.StoryRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class StoryService {
+    @Autowired
     private StoryRepository storyRepository;
 
     public Story getStoryById(int id){
