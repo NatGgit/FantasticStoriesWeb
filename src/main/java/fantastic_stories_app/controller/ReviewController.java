@@ -4,6 +4,7 @@ import fantastic_stories_app.model.Author;
 import fantastic_stories_app.model.Issue;
 import fantastic_stories_app.model.Review;
 import fantastic_stories_app.service.ReviewService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -12,6 +13,7 @@ import java.util.NoSuchElementException;
 @RestController
 @RequestMapping("review")
 public class ReviewController {
+    @Autowired
     private ReviewService reviewService;
 
     public ReviewController() {

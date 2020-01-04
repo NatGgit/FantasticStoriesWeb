@@ -9,9 +9,9 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
-
     <title>All Stories</title>
 </head>
+
 <body bgcolor="#F5F5F5">
 <div class="container">
 
@@ -30,7 +30,7 @@
             </tr>
             </thead>
             <tbody>
-            <tr data-th-each="story : ${list}">
+            <tr data-th-each="story : ${storyList}">
                 <td th:text="${story.id}"></td>
                 <td th:text="${story.title}"></td>
                 <td th:text="${story.originalTitle}"></td>
