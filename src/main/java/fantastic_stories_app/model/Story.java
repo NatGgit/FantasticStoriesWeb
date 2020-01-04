@@ -14,11 +14,11 @@ public class Story {
     private String title;
     private String originalTitle;
 
-    @ManyToOne
+    @ManyToOne // z defaultu jest ustawienie fetch type na eager
     @JoinColumn() //(name = "author_id")  musiałam zakomentować bo wyrzucało błąd - nie widziało tej kolumny
     private Author author;
 
-    @ManyToOne
+    @ManyToOne // z defaultu jest ustawienie fetch type na eager
     @JoinColumn() //(name = "issue_id") - musiałam zakomentować bo wyrzucało błąd - nie widziało tej kolumny
     private Issue issue;
 
@@ -28,4 +28,14 @@ public class Story {
     @OneToOne(mappedBy = "story", cascade = CascadeType.ALL)
     private Review review;
 
+    @Override
+    public String toString() {
+        return "Story{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", originalTitle='" + originalTitle + '\'' +
+                ", author=" + author +
+                ", issue=" + issue +
+                '}';
+    }
 }

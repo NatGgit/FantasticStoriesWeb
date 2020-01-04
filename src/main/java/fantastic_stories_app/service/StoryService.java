@@ -39,7 +39,7 @@ public class StoryService {
 
     // ewentualnie zwrócić page i sortować
     public List<Story> getAllStories(){
-        return (List<Story>) storyRepository.findAll();
+        return storyRepository.findAll();
     }
 
 }

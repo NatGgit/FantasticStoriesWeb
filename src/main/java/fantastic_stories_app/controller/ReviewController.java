@@ -3,9 +3,12 @@ package fantastic_stories_app.controller;
 import fantastic_stories_app.model.Author;
 import fantastic_stories_app.model.Issue;
 import fantastic_stories_app.model.Review;
+import fantastic_stories_app.model.Story;
 import fantastic_stories_app.service.ReviewService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -37,8 +40,9 @@ public class ReviewController {
     }
 
     @GetMapping("/getAll")
-    public List<Review> getAllReviews() {
-        return reviewService.getAllReviews();
+    public ModelAndView getAllReviews(Model model) {
+        List<Review> reviewList = reviewService.getAllReviews();
+        return new ModelAndView("all_reviews_list", "list", reviewList);
     }
 
     @GetMapping("/getAllByRating")

@@ -19,14 +19,22 @@ public class Author {
     // fetch type eager oznacza, że będą ściągnięte wraz z autorem od razu wszystkie opowiadania
     //nie tworzy tej kolumny w bazie
     @OneToMany(mappedBy = "author", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    private List<Story> storyList;
+    private List<Story> stories;
 
     // rozwiązanie z platformy - żeby nie zwracać null w getterach przy kolekcjach
-    public List<Story> getStories(){
-        if (storyList == null){
-            storyList = new ArrayList<>();
+    public List<Story> getStories() {
+        if (stories == null) {
+            stories = new ArrayList<>();
         }
-        return storyList;
+        return stories;
     }
 
+    @Override
+    public String toString() {
+        return "Author{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                '}';
+    }
 }

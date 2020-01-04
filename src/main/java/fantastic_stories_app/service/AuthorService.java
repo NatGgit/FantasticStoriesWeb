@@ -13,7 +13,7 @@ public class AuthorService {
     private AuthorRepository authorRepository;
 
     // ewentualnie zwracać Page
-    public List<Author> getAll(){
+    public List<Author> getAllAuthors() {
         return (List<Author>) authorRepository.findAll();
     }
 
