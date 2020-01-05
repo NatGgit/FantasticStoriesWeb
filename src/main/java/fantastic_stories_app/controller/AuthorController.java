@@ -27,13 +27,11 @@ public class AuthorController {
     @GetMapping("/getById")
     public Author getAuthorById(int id) throws NoSuchElementException {
         return null;
-        //return authorService.getAuthorById(id);
     }
 
     @GetMapping("/getByName")
     public Author getAuthorByName(String lastName) throws NoSuchElementException {
         return null;
-        //return authorService.getAuthorByName(lastName);
     }
 
     @GetMapping("/getAll")

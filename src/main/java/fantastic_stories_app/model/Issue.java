@@ -21,4 +21,10 @@ public class Issue {
         this.number = number;
         this.storyList = storyList;
     }
+
+    public Issue(int publicationYear, String number) {
+        this.id = index++;
+        this.publicationYear = publicationYear;
+        this.number = number;
+    }
 }

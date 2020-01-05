@@ -21,4 +21,11 @@ public class Review {
         this.text = text;
         this.story = story;
     }
+
+    public Review(int rating, String title, String text) {
+        this.id = index++;
+        this.rating = rating;
+        this.title = title;
+        this.text = text;
+    }
 }

@@ -23,4 +23,15 @@ public class Story {
         this.issue = issue;
         this.review = review;
     }
+
+    public Story(String title) {
+        this.id = index++;
+        this.title = title;
+    }
+
+    public Story(String title, String originalTitle) {
+        this.id = index++;
+        this.title = title;
+        this.originalTitle = originalTitle;
+    }
 }

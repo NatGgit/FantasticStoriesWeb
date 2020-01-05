@@ -1,11 +1,6 @@
 package fantastic_stories_app.controller;
 
-import fantastic_stories_app.model.Author;
-import fantastic_stories_app.model.Issue;
 import fantastic_stories_app.model.Review;
-import fantastic_stories_app.model.Story;
-import fantastic_stories_app.service.ReviewService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
@@ -16,53 +11,49 @@ import java.util.NoSuchElementException;
 @RestController
 @RequestMapping("review")
 public class ReviewController {
-    @Autowired
-    private ReviewService reviewService;
+    private List<Review> reviewList;
 
     public ReviewController() {
     }
 
-    //TODO: połączyć z frontendem
-
     @GetMapping("/getById")
     public Review getReviewById(int reviewId) throws NoSuchElementException {
-        return reviewService.getReviewById(reviewId);
+        return null;
     }
 
     @GetMapping("/getByStoryId")
     public Review getReviewByStoryId(int storyId) throws NoSuchElementException {
-        return reviewService.getReviewByStoryId(storyId);
+        return null;
     }
 
     @GetMapping("/getByStoryTitle")
     public Review getReviewByStoryTitle(String storyTitle) throws NoSuchElementException {
-        return reviewService.getReviewByStoryTitle(storyTitle);
+        return null;
     }
 
     @GetMapping("/getAll")
     public ModelAndView getAllReviews(Model model) {
-        List<Review> reviewList = reviewService.getAllReviews();
         return new ModelAndView("all_reviews_list", "list", reviewList);
     }
 
     @GetMapping("/getAllByRating")
     public List<Review> getAllReviewsByRating(int rating) {
-        return reviewService.getAllReviewsByRating(rating);
+        return null;
     }
 
 
     @PostMapping(value = "/add", produces = "application/json")
     public Review addReview(Review review){
-        return reviewService.addReview(review);
+        return null;
     }
 
     @PutMapping(value = "/update", produces = "application/json")
     public Review updateReview(Review review){
-        return reviewService.updateReview(review);
+        return null;
     }
 
     @DeleteMapping("/delete")
     public void deleteReview(Review review)throws NoSuchElementException {
-        reviewService.deleteReview(review);
+
     }
 }

@@ -21,4 +21,10 @@ public class Author {
         this.lastName = lastName;
         this.stories = stories;
     }
+
+    public Author(String firstName, String lastName) {
+        this.id = index++;
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
 }
