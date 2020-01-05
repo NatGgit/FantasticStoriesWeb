@@ -2,38 +2,23 @@ package fantastic_stories_app.model;
 
 import lombok.Data;
 
-import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.List;
 
 @Data
-@Entity
 public class Issue {
-    @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    public static int index = 1;
     private int id;
     private int publicationYear;
     private String number;
-    // niezbyt bezpieczne ustawienie cascade na tym pozwalający usuwać zależne encje
-    // fetch type eager oznacza, że będą ściągnięte wraz z issue od razu wszystkie stories
-    // nie tworzy tej kolumny w bazie
-    @OneToMany(mappedBy = "issue", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private List<Story> storyList;
 
-    // rozwiązanie z platformy - żeby nie zwracać null w getterach przy kolekcjach
-    public List<Story> getStories() {
-        if (storyList == null) {
-            storyList = new ArrayList<>();
-        }
-        return storyList;
+    public Issue() {
     }
 
-    @Override
-    public String toString() {
-        return "Issue{" +
-                "id=" + id +
-                ", publicationYear=" + publicationYear +
-                ", number='" + number + '\'' +
-                '}';
+    public Issue(int publicationYear, String number, List<Story> storyList) {
+        this.id = index++;
+        this.publicationYear = publicationYear;
+        this.number = number;
+        this.storyList = storyList;
     }
 }
