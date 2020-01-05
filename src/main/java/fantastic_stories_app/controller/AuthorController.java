@@ -36,7 +36,7 @@ public class AuthorController {
 
     @GetMapping("/getAll")
     public ModelAndView getAllAuthors(Model model) {
-        return new ModelAndView("all_authors_list", "list", authorList);
+        return new ModelAndView("all_authors_list", "authorList", authorList);
     }
 
 }

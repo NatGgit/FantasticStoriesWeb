@@ -56,7 +56,7 @@ public class StoryController {
 
     @GetMapping("/getAll")
     public ModelAndView getAllStories(Model model) {
-        return new ModelAndView("all_stories_list", "list", storyList);
+        return new ModelAndView("all_stories_list", "storyList", storyList);
     }
 
 }

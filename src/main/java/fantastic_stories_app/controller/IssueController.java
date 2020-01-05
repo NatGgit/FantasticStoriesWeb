@@ -39,7 +39,7 @@ public class IssueController {
 
     @GetMapping("/getAll")
     public ModelAndView getIssueList() {
-        return new ModelAndView("all_issues_list", "list", issueList);
+        return new ModelAndView("all_issues_list", "issueList", issueList);
     }
 
 

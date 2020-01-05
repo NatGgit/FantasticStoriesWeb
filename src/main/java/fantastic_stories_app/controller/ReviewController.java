@@ -33,7 +33,7 @@ public class ReviewController {
 
     @GetMapping("/getAll")
     public ModelAndView getAllReviews(Model model) {
-        return new ModelAndView("all_reviews_list", "list", reviewList);
+        return new ModelAndView("all_reviews_list", "reviewList", reviewList);
     }
 
     @GetMapping("/getAllByRating")
