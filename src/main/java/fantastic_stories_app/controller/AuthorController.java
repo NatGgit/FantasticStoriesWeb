@@ -17,14 +17,8 @@ import java.util.NoSuchElementException;
 public class AuthorController {
     @Autowired
     private AuthorService authorService;
-    //private List<Author> authorList;
 
     public AuthorController(){
-//        authorList = new ArrayList<>();
-//        authorList.add(new Author( "Artur", "Laisen"));
-//        authorList.add(new Author( "Max", "Gladstone"));
-//        authorList.add(new Author( "Vina Jie-Min", "Prasad"));
-//        authorList.add(new Author( "Rachel ", "Pollack"));
     }
 
     @GetMapping("/getById")
@@ -40,7 +34,7 @@ public class AuthorController {
     @GetMapping("/getAll")
     public ModelAndView getAllAuthors(Model model) {
         List<Author> authorList = authorService.getAllAuthors();
-        return new ModelAndView("all_authors_list", "list", authorList);
+        return new ModelAndView("all_authors_list", "authorList", authorList);
     }
 
 }

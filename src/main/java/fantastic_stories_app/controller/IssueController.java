@@ -16,13 +16,8 @@ import java.util.NoSuchElementException;
 public class IssueController {
     @Autowired
     private IssueService issueService;
-    //private List<Issue> issueList;
 
     public IssueController(){
-//        issueList = new ArrayList<>();
-//        issueList.add(new Issue( 2019, "5/2019"));
-//        issueList.add(new Issue( 2019, "1/2019"));
-//        issueList.add(new Issue( 2019, "special issue no 1"));
     }
 
     //TODO: połączyć z frontendem
@@ -45,7 +40,7 @@ public class IssueController {
     @GetMapping("/getAll")
     public ModelAndView getIssueList() {
         List<Issue> issueList = issueService.getAll();
-        return new ModelAndView("all_issues_list", "list", issueList);
+        return new ModelAndView("all_issues_list", "issueList", issueList);
     }
 
 

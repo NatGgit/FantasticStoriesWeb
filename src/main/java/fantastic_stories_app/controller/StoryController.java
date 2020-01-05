@@ -17,14 +17,8 @@ import java.util.NoSuchElementException;
 public class StoryController {
     @Autowired
     private StoryService storyService;
-    //private List<Story> storyList;
 
     public StoryController() {
-//        storyList = new ArrayList<>();
-//        storyList.add(new Story("Dalej niż koniec drogi"));
-//        storyList.add(new Story("Modelka Crispina", "(Crispin's Model)"));
-//        storyList.add(new Story("Zamówienie na steki", "(A Series of Steakes)"));
-//        storyList.add(new Story("Pieśń Ognia", "(Song of Fire)"));
     }
 
     @GetMapping("/getById")
@@ -60,7 +54,7 @@ public class StoryController {
     @GetMapping("/getAll")
     public ModelAndView getAllStories(Model model) {
         List<Story> storyList = storyService.getAllStories();
-        return new ModelAndView("all_stories_list", "list", storyList);
+        return new ModelAndView("all_stories_list", "storyList", storyList);
     }
 
 }

@@ -22,8 +22,6 @@ public class ReviewController {
     public ReviewController() {
     }
 
-    //TODO: połączyć z frontendem
-
     @GetMapping("/getById")
     public Review getReviewById(int reviewId) throws NoSuchElementException {
         return reviewService.getReviewById(reviewId);
@@ -42,7 +40,7 @@ public class ReviewController {
     @GetMapping("/getAll")
     public ModelAndView getAllReviews(Model model) {
         List<Review> reviewList = reviewService.getAllReviews();
-        return new ModelAndView("all_reviews_list", "list", reviewList);
+        return new ModelAndView("all_reviews_list", "reviewList", reviewList);
     }
 
     @GetMapping("/getAllByRating")
