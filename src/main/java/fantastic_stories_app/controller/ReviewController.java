@@ -1,41 +1,46 @@
 package fantastic_stories_app.controller;
 
-import fantastic_stories_app.model.Author;
-import fantastic_stories_app.model.Issue;
 import fantastic_stories_app.model.Review;
 import fantastic_stories_app.model.Story;
 import fantastic_stories_app.service.ReviewService;
+import fantastic_stories_app.service.StoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
-import java.util.NoSuchElementException;
 
 @RestController
 @RequestMapping("review")
 public class ReviewController {
     @Autowired
     private ReviewService reviewService;
+    @Autowired
+    private StoryService storyService;
 
     public ReviewController() {
     }
 
-    @GetMapping("/getById")
-    public Review getReviewById(int reviewId) throws NoSuchElementException {
-        return reviewService.getReviewById(reviewId);
-    }
+//    @GetMapping(value = "/form")
+//    public ModelAndView showForm() {
+//        return new ModelAndView("add_review", "review", new Review());
+//    }
 
-    @GetMapping("/getByStoryId")
-    public Review getReviewByStoryId(int storyId) throws NoSuchElementException {
-        return reviewService.getReviewByStoryId(storyId);
-    }
+//    @GetMapping("/getById")
+//    public Review getReviewById(int reviewId) throws NoSuchElementException {
+//        return reviewService.getReviewById(reviewId);
+//    }
 
-    @GetMapping("/getByStoryTitle")
-    public Review getReviewByStoryTitle(String storyTitle) throws NoSuchElementException {
-        return reviewService.getReviewByStoryTitle(storyTitle);
-    }
+//    @GetMapping("/getByStoryId")
+//    public Review getReviewByStoryId(int storyId) throws NoSuchElementException {
+//        return reviewService.getReviewByStoryId(storyId);
+//    }
+
+//    @GetMapping("/getByStoryTitle")
+//    public Review getReviewByStoryTitle(String storyTitle) throws NoSuchElementException {
+//        return reviewService.getReviewByStoryTitle(storyTitle);
+//    }
 
     @GetMapping("/getAll")
     public ModelAndView getAllReviews(Model model) {
@@ -43,24 +48,27 @@ public class ReviewController {
         return new ModelAndView("all_reviews_list", "reviewList", reviewList);
     }
 
-    @GetMapping("/getAllByRating")
-    public List<Review> getAllReviewsByRating(int rating) {
-        return reviewService.getAllReviewsByRating(rating);
+//    @GetMapping("/getAllByRating")
+//    public List<Review> getAllReviewsByRating(int rating) {
+//        return reviewService.getAllReviewsByRating(rating);
+//    }
+
+    @PostMapping(value = "/add")
+    public ModelAndView createReview(@ModelAttribute(value = "story") Story storyToReview) {
+        Review reviewToCreate = new Review();
+        reviewToCreate.setStory(storyToReview);
+        return new ModelAndView("/add_review", "reviewToCreate", reviewToCreate);
     }
 
-
-    @PostMapping(value = "/add", produces = "application/json")
-    public Review addReview(Review review){
-        return reviewService.addReview(review);
-    }
-
-    @PutMapping(value = "/update", produces = "application/json")
-    public Review updateReview(Review review){
-        return reviewService.updateReview(review);
+    @PostMapping(value = "/save")
+    public ModelAndView saveReview(@ModelAttribute(value = "review") Review review) {
+        reviewService.saveReview(review);
+        return new ModelAndView("redirect:/review/getAll");
     }
 
     @DeleteMapping("/delete")
-    public void deleteReview(Review review)throws NoSuchElementException {
+    public ModelAndView deleteReview(@ModelAttribute(value = "review") Review review) {
         reviewService.deleteReview(review);
+        return new ModelAndView("redirect:/review/getAll");
     }
 }

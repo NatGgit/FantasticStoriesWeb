@@ -21,35 +21,35 @@ public class StoryController {
     public StoryController() {
     }
 
-    @GetMapping("/getById")
-    public Story getStoryById(int storyId) throws NoSuchElementException {
-        return storyService.getStoryById(storyId);
-    }
-
-    @GetMapping("/getByTitle")
-    public Story getStoryByTitle(String storyTitle) throws NoSuchElementException {
-        return storyService.getStoryByTitle(storyTitle);
-    }
-
-    @GetMapping("/getAllByIssueId")
-    public List<Story> getStoriesByIssueId(int issueId) throws NoSuchElementException {
-        return storyService.getStoriesByIssueId(issueId);
-    }
-
-    @GetMapping("/getAllByIssueNumber")
-    public List<Story> getStoriesByIssueNumber(String issueNumber) throws NoSuchElementException {
-        return storyService.getStoriesByIssueNumber(issueNumber);
-    }
-
-    @GetMapping("/getAllByAuthorId")
-    public List<Story> getStoriesByAuthorId(int authorId) throws NoSuchElementException{
-        return storyService.getStoriesByAuthorId(authorId);
-    }
-
-    @GetMapping("/getAllByAuthorName")
-    public List<Story> getStoriesByAuthorName(String authorName) throws NoSuchElementException{
-        return storyService.getStoriesByAuthorName(authorName);
-    }
+//    @GetMapping("/getById")
+//    public Story getStoryById(int storyId) throws NoSuchElementException {
+//        return storyService.getStoryById(storyId);
+//    }
+//
+//    @GetMapping("/getByTitle")
+//    public Story getStoryByTitle(String storyTitle) throws NoSuchElementException {
+//        return storyService.getStoryByTitle(storyTitle);
+//    }
+//
+//    @GetMapping("/getAllByIssueId")
+//    public List<Story> getStoriesByIssueId(int issueId) throws NoSuchElementException {
+//        return storyService.getStoriesByIssueId(issueId);
+//    }
+//
+//    @GetMapping("/getAllByIssueNumber")
+//    public List<Story> getStoriesByIssueNumber(String issueNumber) throws NoSuchElementException {
+//        return storyService.getStoriesByIssueNumber(issueNumber);
+//    }
+//
+//    @GetMapping("/getAllByAuthorId")
+//    public List<Story> getStoriesByAuthorId(int authorId) throws NoSuchElementException{
+//        return storyService.getStoriesByAuthorId(authorId);
+//    }
+//
+//    @GetMapping("/getAllByAuthorName")
+//    public List<Story> getStoriesByAuthorName(String authorName) throws NoSuchElementException{
+//        return storyService.getStoriesByAuthorName(authorName);
+//    }
 
     @GetMapping("/getAll")
     public ModelAndView getAllStories(Model model) {

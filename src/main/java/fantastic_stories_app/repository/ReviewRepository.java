@@ -10,5 +10,4 @@ import java.util.List;
 public interface ReviewRepository extends PagingAndSortingRepository<Review, Integer> {
     Review findByStoryTitle(String storyTitle);
     List<Review> findAllByRating(int rating);
-
 }

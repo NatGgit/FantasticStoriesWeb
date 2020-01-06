@@ -33,12 +33,7 @@ public class ReviewService {
         return reviewRepository.findAllByRating(rating);
     }
 
-    public Review addReview(Review review){
-        return reviewRepository.save(review);
-    }
-
-    // TODO: uzupełnić logikę
-    public Review updateReview(Review review){
+    public Review saveReview(Review review) {
         return reviewRepository.save(review);
     }
 

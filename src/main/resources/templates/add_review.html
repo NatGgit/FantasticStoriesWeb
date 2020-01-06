@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:form="http://www.w3.org/1999/html">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <title>Add Review</title>
+
+</head>
+
+<body bgcolor="#F5F5F5">
+<hr>
+<div class="container">
+    <h2>Add Review</h2>
+    <div>
+        <form action="#" th:action="@{/review/add}" th:object="${review}" method="post">
+            <input type="hidden" th:field="*{id}"><br>
+            <input type="text" th:field="*{rating}" placeholder="Rate story"><br>
+            <input type="text" th:field="*{title}" placeholder="Review title"><br>
+            <input type="text" th:field="*{text}" placeholder="Review Text"><br>
+            <input type="hidden" th:field="*{story.id}"><br>
+            <input type="submit" th:value="Save">
+        </form>
+        <hr>
+    </div>
+</div>
+
+</body>
+</html>
