@@ -38,7 +38,7 @@
                 <td th:text="${story.getAuthor().getFirstName() + story.getAuthor().getLastName()}"></td>
                 <td th:text="${story.getIssue().getNumber()}"></td>
                 <td>
-                    <form method="post" th:object="${story}" th:action="@{/review/add}">
+                    <form action="#" th:action="@{/review/openForm}" th:object="${story}" method="post">
                         <input type="hidden" th:name="story" th:value="${story}">
                         <button type="submit">Add Review</button>
                     </form>

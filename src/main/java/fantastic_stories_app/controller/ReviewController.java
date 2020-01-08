@@ -22,10 +22,10 @@ public class ReviewController {
     public ReviewController() {
     }
 
-//    @GetMapping(value = "/form")
-//    public ModelAndView showForm() {
-//        return new ModelAndView("add_review", "review", new Review());
-//    }
+    @GetMapping(value = "/form")
+    public ModelAndView showForm() {
+        return new ModelAndView("add_review_form", "review", new Review());
+    }
 
 //    @GetMapping("/getById")
 //    public Review getReviewById(int reviewId) throws NoSuchElementException {
@@ -53,11 +53,11 @@ public class ReviewController {
 //        return reviewService.getAllReviewsByRating(rating);
 //    }
 
-    @PostMapping(value = "/add")
-    public ModelAndView createReview(@ModelAttribute(value = "story") Story storyToReview) {
+    @PostMapping(value = "/openForm")
+    public ModelAndView createReview(@ModelAttribute(value = "story") Story story) {
         Review reviewToCreate = new Review();
-        reviewToCreate.setStory(storyToReview);
-        return new ModelAndView("/add_review", "reviewToCreate", reviewToCreate);
+        reviewToCreate.setStory(story);
+        return new ModelAndView("redirect:/review/form", "reviewToCreate", reviewToCreate);
     }
 
     @PostMapping(value = "/save")

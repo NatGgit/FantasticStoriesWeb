@@ -1,6 +1,7 @@
 package fantastic_stories_app.model;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 // musiałam usunąć lomboka bo zapętlał mi odniesienia między review i story i dostawałam stackOverflow exception
 
@@ -85,5 +86,22 @@ public class Story {
                 ", author=" + author +
                 ", issue=" + issue +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Story story = (Story) o;
+        return id == story.id &&
+                Objects.equals(title, story.title) &&
+                Objects.equals(originalTitle, story.originalTitle) &&
+                Objects.equals(author, story.author) &&
+                Objects.equals(issue, story.issue);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, title, originalTitle, author, issue);
     }
 }

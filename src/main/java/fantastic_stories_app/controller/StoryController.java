@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
-import java.util.NoSuchElementException;
 
 @RestController
 @RequestMapping("story")
@@ -56,5 +55,13 @@ public class StoryController {
         List<Story> storyList = storyService.getAllStories();
         return new ModelAndView("all_stories_list", "storyList", storyList);
     }
+
+//    @GetMapping("/getAll")
+//    public String getAllStories(Model model) {
+//        List<Story> storyList = storyService.getAllStories();
+//        model.addAttribute("storyList", storyList);
+//        model.addAttribute("newStory", new Story());
+//        return "all_stories_list";
+//    }
 
 }

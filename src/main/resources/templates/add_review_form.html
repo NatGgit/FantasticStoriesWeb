@@ -19,12 +19,13 @@
 <div class="container">
     <h2>Add Review</h2>
     <div>
-        <form action="#" th:action="@{/review/add}" th:object="${review}" method="post">
+        <!-- ten th:object powoduje błąd Neither BindingResult nor plain target object for bean name 'story' available as request attribute-->
+        <form action="#" th:action="@{/review/save}" th:object="${story}" method="post">
             <input type="hidden" th:field="*{id}"><br>
-            <input type="text" th:field="*{rating}" placeholder="Rate story"><br>
-            <input type="text" th:field="*{title}" placeholder="Review title"><br>
-            <input type="text" th:field="*{text}" placeholder="Review Text"><br>
-            <input type="hidden" th:field="*{story.id}"><br>
+            <p> Rate story: <input type="text" th:field="*{story.setReview().setRating()}"></p>
+            <input type="text" th:field="*{story.setReview().setTitle()}" placeholder="Review title"><br>
+            <input type="text" th:field="*{story.setReview()}" placeholder="Review text"><br>
+            <input type="hidden" th:field="*{story.setReview().setId()}"><br>
             <input type="submit" th:value="Save">
         </form>
         <hr>
