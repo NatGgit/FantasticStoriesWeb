@@ -9,8 +9,8 @@ import java.util.Objects;
 public class Review {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private int id;
-    private int rating;
+    private Integer id;
+    private Integer rating;
     private String title;
     private String text;
 

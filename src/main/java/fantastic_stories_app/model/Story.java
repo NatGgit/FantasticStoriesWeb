@@ -9,7 +9,7 @@ import java.util.Objects;
 public class Story {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private int id;
+    private Integer id;
     private String title;
     private String originalTitle;
 

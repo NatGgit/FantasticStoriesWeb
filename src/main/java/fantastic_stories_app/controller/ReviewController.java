@@ -27,19 +27,15 @@ public class ReviewController {
         return new ModelAndView("add_review_form", "review", new Review());
     }
 
-//    @GetMapping("/getById")
-//    public Review getReviewById(int reviewId) throws NoSuchElementException {
-//        return reviewService.getReviewById(reviewId);
-//    }
+    //uzupełnić
+    @GetMapping("/getById")
+    public ModelAndView getReviewById(int reviewId) {
+        return new ModelAndView("see_review", "review", new Review());
+    }
 
 //    @GetMapping("/getByStoryId")
-//    public Review getReviewByStoryId(int storyId) throws NoSuchElementException {
+//    public Review getReviewByStoryId(int storyId) {
 //        return reviewService.getReviewByStoryId(storyId);
-//    }
-
-//    @GetMapping("/getByStoryTitle")
-//    public Review getReviewByStoryTitle(String storyTitle) throws NoSuchElementException {
-//        return reviewService.getReviewByStoryTitle(storyTitle);
 //    }
 
     @GetMapping("/getAll")
@@ -53,13 +49,28 @@ public class ReviewController {
 //        return reviewService.getAllReviewsByRating(rating);
 //    }
 
+    // Wszelkie obiekty przesyłane poprzez model czy modelandview są zamieniane na stringi, co powoduje błędy jeśli chcemy
+    // na nich dalej operować. dlatego trzeba przesyłać nie cały obiekt ale samo id i na jego podstawie pobierać obiekt
+    // bezpośrednio z bazy
     @PostMapping(value = "/openForm")
-    public ModelAndView createReview(@ModelAttribute(value = "story") Story story) {
-        Review reviewToCreate = new Review();
-        reviewToCreate.setStory(story);
-        return new ModelAndView("redirect:/review/form", "reviewToCreate", reviewToCreate);
+    public ModelAndView createReview(@ModelAttribute(value = "story.id") String storyId) {
+        Integer chosenStoryId = Integer.parseInt(storyId);
+        Story chosenStory = storyService.getStoryById(chosenStoryId);
+        Review review = new Review();
+        review.setStory(chosenStory);
+        return new ModelAndView("add_review_form", "review", review);
     }
 
+    @GetMapping(value = "/seeReview")
+    public ModelAndView seeReview(@ModelAttribute(value = "story.id") String storyId) {
+        Integer chosenStoryId = Integer.parseInt(storyId);
+        Story chosenStory = storyService.getStoryById(chosenStoryId);
+        Integer reviewId = chosenStory.getReview().getId();
+        Review review = reviewService.getReviewById(reviewId);
+        return new ModelAndView("see_review", "review", review);
+    }
+
+    // dokonczyć. dodać pojawiającą się wiadomość "twoja recenzja została zachowan'a
     @PostMapping(value = "/save")
     public ModelAndView saveReview(@ModelAttribute(value = "review") Review review) {
         reviewService.saveReview(review);
@@ -70,5 +81,10 @@ public class ReviewController {
     public ModelAndView deleteReview(@ModelAttribute(value = "review") Review review) {
         reviewService.deleteReview(review);
         return new ModelAndView("redirect:/review/getAll");
+    }
+
+    @RequestMapping("/goBack")
+    public ModelAndView goBack() {
+        return new ModelAndView("redirect:/story/getAll");
     }
 }

@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
-import java.util.NoSuchElementException;
 
 @RestController
 @RequestMapping("author")
@@ -18,18 +17,18 @@ public class AuthorController {
     @Autowired
     private AuthorService authorService;
 
-    public AuthorController(){
+    public AuthorController() {
     }
 
-    @GetMapping("/getById")
-    public Author getAuthorById(int id) throws NoSuchElementException {
-        return authorService.getAuthorById(id);
-    }
-
-    @GetMapping("/getByName")
-    public Author getAuthorByName(String lastName) throws NoSuchElementException {
-        return authorService.getAuthorByName(lastName);
-    }
+//    @GetMapping("/getById")
+//    public Author getAuthorById(Integer id) throws NoSuchElementException {
+//        return authorService.getAuthorById(id);
+//    }
+//
+//    @GetMapping("/getByName")
+//    public Author getAuthorByName(String lastName) throws NoSuchElementException {
+//        return authorService.getAuthorByName(lastName);
+//    }
 
     @GetMapping("/getAll")
     public ModelAndView getAllAuthors(Model model) {

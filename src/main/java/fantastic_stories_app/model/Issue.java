@@ -11,8 +11,8 @@ import java.util.List;
 public class Issue {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private int id;
-    private int publicationYear;
+    private Integer id;
+    private Integer publicationYear;
     private String number;
     // niezbyt bezpieczne ustawienie cascade na tym pozwalający usuwać zależne encje
     // fetch type eager oznacza, że będą ściągnięte wraz z issue od razu wszystkie stories

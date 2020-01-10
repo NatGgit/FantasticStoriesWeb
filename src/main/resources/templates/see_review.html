@@ -1,10 +1,55 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:form="http://www.w3.org/1999/html">
 <head>
+    <!-- Required meta tags -->
     <meta charset="UTF-8">
-    <title>Review</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <title>See Review</title>
+
 </head>
-<body>
+
+<body bgcolor="#F5F5F5">
+<hr>
+<div class="container">
+    <h3>Review for story "<span th:text="${review.getStory().getTitle()}">
+       </span>" by <span
+            th:text="${review.getStory().getAuthor().getFirstName() + review.getStory().getAuthor().getLastName()}"></span>
+    </h3>
+    <p></p>
+    <div>
+        <form action="#" th:action="@{/review/save}" th:object="${review}" method="post">
+            <p> Rating: "<span th:text="${review.rating}"></span>"</p>
+            <hr>
+            <p> Review title: "<span th:text="${review.title}"></span>"</p>
+            <hr>
+            <p> Review text: "<span th:text="${review.text}"></span>"</p>
+            <input type="hidden" th:field="*{id}"><br>
+        </form>
+        <hr>
+    </div>
+    <body>
+    <form action="#" th:action="@{/goBack}">
+        <button type="submit">Go back</button>
+    </form>
+    </body>
+    <body>
+    <form action="#" th:action="@{/delete}">
+        <button type="submit">Delete Review</button>
+    </form>
+    </body>
+    <body>
+    <form action="#" th:action="@{/edit}">
+        <button type="submit">Edit Review</button>
+    </form>
+    </body>
+
+</div>
 
 </body>
 </html>

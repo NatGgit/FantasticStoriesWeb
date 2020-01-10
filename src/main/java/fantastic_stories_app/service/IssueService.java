@@ -17,7 +17,7 @@ public class IssueService {
         return (List<Issue>) issueRepository.findAll();
     }
 
-    public Issue getIssueById(int id) {
+    public Issue getIssueById(Integer id) {
         return issueRepository.findOne(id);
     }
 
@@ -26,7 +26,7 @@ public class IssueService {
     }
 
     // ewentualnie zwracać Page i sortować po kolejności
-    public List<Issue> getIssueFromYear(int yearOfPublication) {
+    public List<Issue> getIssueFromYear(Integer yearOfPublication) {
         return issueRepository.findAllByPublicationYear(yearOfPublication);
     }
 }

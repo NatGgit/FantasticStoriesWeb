@@ -12,7 +12,7 @@ public class StoryService {
     @Autowired
     private StoryRepository storyRepository;
 
-    public Story getStoryById(int id){
+    public Story getStoryById(Integer id) {
         return storyRepository.findOne(id);
     }
 
@@ -21,7 +21,7 @@ public class StoryService {
         return storyRepository.findByTitle(storyTitle);
     }
 
-    public List<Story> getStoriesByIssueId(int issueId){
+    public List<Story> getStoriesByIssueId(Integer issueId) {
         return storyRepository.findAllByIssueId(issueId);
     }
 
@@ -29,7 +29,7 @@ public class StoryService {
         return storyRepository.findAllByIssueNumber(issueNumber);
     }
 
-    public List<Story> getStoriesByAuthorId(int authorId){
+    public List<Story> getStoriesByAuthorId(Integer authorId) {
         return storyRepository.findAllByAuthorId(authorId);
     }
 

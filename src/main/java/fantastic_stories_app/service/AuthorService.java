@@ -17,7 +17,7 @@ public class AuthorService {
         return (List<Author>) authorRepository.findAll();
     }
 
-    public Author getAuthorById(int id){
+    public Author getAuthorById(Integer id) {
         return authorRepository.findOne(id);
     }
 

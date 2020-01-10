@@ -9,5 +9,6 @@ import java.util.List;
 @Repository
 public interface IssueRepository extends PagingAndSortingRepository<Issue, Integer> {
     Issue findByNumber(String number);
-    List<Issue> findAllByPublicationYear(int yearOfPublication);
+
+    List<Issue> findAllByPublicationYear(Integer yearOfPublication);
 }

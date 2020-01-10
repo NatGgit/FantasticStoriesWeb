@@ -9,5 +9,6 @@ import java.util.List;
 @Repository
 public interface ReviewRepository extends PagingAndSortingRepository<Review, Integer> {
     Review findByStoryTitle(String storyTitle);
-    List<Review> findAllByRating(int rating);
+
+    List<Review> findAllByRating(Integer rating);
 }

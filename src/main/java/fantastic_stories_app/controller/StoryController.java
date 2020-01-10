@@ -21,7 +21,7 @@ public class StoryController {
     }
 
 //    @GetMapping("/getById")
-//    public Story getStoryById(int storyId) throws NoSuchElementException {
+//    public Story getStoryById(Integer storyId) throws NoSuchElementException {
 //        return storyService.getStoryById(storyId);
 //    }
 //
@@ -31,7 +31,7 @@ public class StoryController {
 //    }
 //
 //    @GetMapping("/getAllByIssueId")
-//    public List<Story> getStoriesByIssueId(int issueId) throws NoSuchElementException {
+//    public List<Story> getStoriesByIssueId(Integer issueId) throws NoSuchElementException {
 //        return storyService.getStoriesByIssueId(issueId);
 //    }
 //
@@ -41,7 +41,7 @@ public class StoryController {
 //    }
 //
 //    @GetMapping("/getAllByAuthorId")
-//    public List<Story> getStoriesByAuthorId(int authorId) throws NoSuchElementException{
+//    public List<Story> getStoriesByAuthorId(Integer authorId) throws NoSuchElementException{
 //        return storyService.getStoriesByAuthorId(authorId);
 //    }
 //
@@ -55,13 +55,5 @@ public class StoryController {
         List<Story> storyList = storyService.getAllStories();
         return new ModelAndView("all_stories_list", "storyList", storyList);
     }
-
-//    @GetMapping("/getAll")
-//    public String getAllStories(Model model) {
-//        List<Story> storyList = storyService.getAllStories();
-//        model.addAttribute("storyList", storyList);
-//        model.addAttribute("newStory", new Story());
-//        return "all_stories_list";
-//    }
 
 }

@@ -29,4 +29,6 @@ VALUES (1, 'Garncarska igraszka', NULL, 1, 1),
        (11, 'Groza nad Mutindale (scenariusz RPG)', NULL, 11, 2);
 
 INSERT INTO review(id, rating, title, text, story_id)
-VALUES (1, 5, 'test review title', 'test review', 1);
+VALUES (1, 3, 'opowiadanie o niczym',
+        'bardzo smutne opowiadanie, które zupełnie mi się nie podobało niby sprawnie napisane, ' ||
+        'ale bez sensu. Główna bohaterka pragnie czegośtam ale wszystko żle się dla niej kończy itd', 1);

@@ -12,11 +12,11 @@ public class ReviewService {
     @Autowired
     private ReviewRepository reviewRepository;
 
-    public Review getReviewById(int reviewId){
+    public Review getReviewById(Integer reviewId) {
         return reviewRepository.findOne(reviewId);
     }
 
-    public Review getReviewByStoryId(int storyId){
+    public Review getReviewByStoryId(Integer storyId) {
         return reviewRepository.findOne(storyId);
     }
 
@@ -29,7 +29,7 @@ public class ReviewService {
         return (List<Review>) reviewRepository.findAll();
     }
 
-    public List<Review> getAllReviewsByRating(int rating){
+    public List<Review> getAllReviewsByRating(Integer rating) {
         return reviewRepository.findAllByRating(rating);
     }
 
