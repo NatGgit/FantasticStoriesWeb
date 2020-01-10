@@ -35,8 +35,8 @@
                 <td th:text="${issue.publicationYear}"></td>
                 <td th:text="${issue.number}"></td>
                 <td>
-                    <form method="post" th:object="${issue}" th:action="@{/chosen_stories_list}">
-                        <input type="hidden" th:name="issue_id" th:value="${issue.id}">
+                    <form action="#" th:action="@{/story/getAllByIssue}" th:object="${issue.id}" method="get">
+                        <input type="hidden" th:name="issue.id" th:value="${issue.id}">
                         <button type="submit">See stories in this issue</button>
                     </form>
                 </td>

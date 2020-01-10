@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
-    <title>All Authors</title>
+    <title>Chosen Stories</title>
 
 </head>
 
@@ -19,31 +19,32 @@
 
     <div class="row">
         <div id="title">
-            <h1>Authors</h1>
+            <h3>Stories from Issue No. <span th:text="${model.issue.getNumber()}"></span></h3>
         </div>
         <table>
             <thead>
             <tr>
                 <th>id</th>
-                <th>First Name</th>
-                <th>Last Name</th>
+                <th>Title</th>
+                <th>Original Title</th>
+                <th>Author</th>
             </tr>
             </thead>
             <tbody>
-            <tr data-th-each="author : ${authorList}">
-                <td th:text="${author.id}"></td>
-                <td th:text="${author.firstName}"></td>
-                <td th:text="${author.lastName}"></td>
-                <td>
-                    <form action="#" th:action="@{/story/getAllByAuthor}" th:object="${author.id}" method="get">
-                        <input type="hidden" th:name="author.id" th:value="${author.id}">
-                        <button type="submit">See stories by this author</button>
-                    </form>
-                </td>
+            <tr data-th-each="story : ${model.storyList}">
+                <td th:text="${story.id}"></td>
+                <td th:text="${story.title}"></td>
+                <td th:text="${story.originalTitle}"></td>
+                <td th:text="${story.getAuthor().getFirstName() + story.getAuthor().getLastName()}"></td>
             </tr>
             </tbody>
         </table>
     </div>
+    <body>
+    <form action="#" th:action="@{/goBack}">
+        <button type="submit">Back</button>
+    </form>
+    </body>
 </div>
 </body>
 </html>

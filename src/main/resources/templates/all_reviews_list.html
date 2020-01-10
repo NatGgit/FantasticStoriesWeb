@@ -38,9 +38,9 @@
                     + review.getStory().getAuthor().getLastName()}"></td>
                 <td th:text="${review.title}"></td>
                 <td>
-                    <form method="post" th:object="${review}" th:action="@{/see_review}">
-                        <input type="hidden" th:name="review_id" th:value="${review.id}">
-                        <button type="submit">Read the review</button>
+                    <form action="#" th:action="@{/review/seeByItsId}" th:object="${review.id}" method="get">
+                        <input type="hidden" th:name="review.id" th:value="${review.id}">
+                        <button type="submit">See review</button>
                     </form>
                 </td>
             </tr>

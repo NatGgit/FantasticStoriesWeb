@@ -22,32 +22,11 @@ public class ReviewController {
     public ReviewController() {
     }
 
-    @GetMapping(value = "/form")
-    public ModelAndView showForm() {
-        return new ModelAndView("add_review_form", "review", new Review());
-    }
-
-    //uzupełnić
-    @GetMapping("/getById")
-    public ModelAndView getReviewById(int reviewId) {
-        return new ModelAndView("see_review", "review", new Review());
-    }
-
-//    @GetMapping("/getByStoryId")
-//    public Review getReviewByStoryId(int storyId) {
-//        return reviewService.getReviewByStoryId(storyId);
-//    }
-
     @GetMapping("/getAll")
     public ModelAndView getAllReviews(Model model) {
         List<Review> reviewList = reviewService.getAllReviews();
         return new ModelAndView("all_reviews_list", "reviewList", reviewList);
     }
-
-//    @GetMapping("/getAllByRating")
-//    public List<Review> getAllReviewsByRating(int rating) {
-//        return reviewService.getAllReviewsByRating(rating);
-//    }
 
     // Wszelkie obiekty przesyłane poprzez model czy modelandview są zamieniane na stringi, co powoduje błędy jeśli chcemy
     // na nich dalej operować. dlatego trzeba przesyłać nie cały obiekt ale samo id i na jego podstawie pobierać obiekt
@@ -61,12 +40,19 @@ public class ReviewController {
         return new ModelAndView("add_review_form", "review", review);
     }
 
-    @GetMapping(value = "/seeReview")
-    public ModelAndView seeReview(@ModelAttribute(value = "story.id") String storyId) {
+    @GetMapping(value = "/seeByStoryId")
+    public ModelAndView seeReviewByStoryId(@ModelAttribute(value = "story.id") String storyId) {
         Integer chosenStoryId = Integer.parseInt(storyId);
         Story chosenStory = storyService.getStoryById(chosenStoryId);
         Integer reviewId = chosenStory.getReview().getId();
         Review review = reviewService.getReviewById(reviewId);
+        return new ModelAndView("see_review", "review", review);
+    }
+
+    @GetMapping(value = "/seeByItsId")
+    public ModelAndView seeReviewByItsId(@ModelAttribute(value = "review.id") String reviewId) {
+        Integer chosenReviewId = Integer.parseInt(reviewId);
+        Review review = reviewService.getReviewById(chosenReviewId);
         return new ModelAndView("see_review", "review", review);
     }
 
@@ -77,14 +63,21 @@ public class ReviewController {
         return new ModelAndView("redirect:/review/getAll");
     }
 
+    //dokończyć
     @DeleteMapping("/delete")
     public ModelAndView deleteReview(@ModelAttribute(value = "review") Review review) {
         reviewService.deleteReview(review);
         return new ModelAndView("redirect:/review/getAll");
     }
 
+    //dokończyć
     @RequestMapping("/goBack")
     public ModelAndView goBack() {
         return new ModelAndView("redirect:/story/getAll");
     }
+
+    //    @GetMapping("/getAllByRating")
+//    public List<Review> getAllReviewsByRating(int rating) {
+//        return reviewService.getAllReviewsByRating(rating);
+//    }
 }

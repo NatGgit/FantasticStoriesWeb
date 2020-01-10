@@ -19,13 +19,13 @@
 <div class="container">
     <h2>Add Review</h2>
 
-    <h4>for story "<span th:text="${review.getStory().getTitle()}">
-       </span>" by <span
-            th:text="${review.getStory().getAuthor().getFirstName() + review.getStory().getAuthor().getLastName()}"></span>
+    <h4>for story "<span th:text="${review.getStory().getTitle()}"></span>" by
+        <span th:text="${review.getStory().getAuthor().getFirstName() + review.getStory().getAuthor().getLastName()}"></span>
     </h4>
 
     <div>
         <form action="#" th:action="@{/review/save}" th:object="${review}" method="post">
+            <input type="hidden" th:field="*{id}"><br>
             <p> Rate story: <input type="text" th:field="*{rating}"></p>
             <p><input type="text" th:field="*{title}" placeholder="Review title"></p>
             <p><input type="text" th:field="*{text}" placeholder="Review text"></p>
