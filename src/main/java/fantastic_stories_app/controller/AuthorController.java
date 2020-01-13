@@ -36,4 +36,8 @@ public class AuthorController {
         return new ModelAndView("all_authors_list", "authorList", authorList);
     }
 
+    @RequestMapping("/backToAuthorsList")
+    public ModelAndView backToAuthorsList() {
+        return new ModelAndView("redirect:/author/getAll");
+    }
 }

@@ -70,12 +70,6 @@ public class ReviewController {
         return new ModelAndView("redirect:/review/getAll");
     }
 
-    //dokończyć
-    @RequestMapping("/goBack")
-    public ModelAndView goBack() {
-        return new ModelAndView("redirect:/story/getAll");
-    }
-
     //    @GetMapping("/getAllByRating")
 //    public List<Review> getAllReviewsByRating(int rating) {
 //        return reviewService.getAllReviewsByRating(rating);

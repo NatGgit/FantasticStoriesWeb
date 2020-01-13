@@ -10,7 +10,7 @@ import java.util.List;
 @Entity
 public class Issue {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE) //IDENTITY?
     private Integer id;
     private Integer publicationYear;
     private String number;
