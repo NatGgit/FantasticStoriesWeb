@@ -8,7 +8,7 @@ import java.util.Objects;
 @Entity
 public class Review {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private Integer rating;
     private String title;
@@ -16,12 +16,12 @@ public class Review {
 
     //usunięcie review nie spowoduje usunięcia story
     @OneToOne(cascade = CascadeType.PERSIST)
-    @JoinColumn() //(name = "story_id") - musiałam zakomentować bo wyrzucało błąd - nie widziało tej kolumny
+    // ustawienie unique=true nie pozwala dodać więcej niż 1 review dla 1 story
+    @JoinColumn(name = "story_id", unique = true)
     private Story story;
 
     public Review() {
     }
-
 
     public Integer getId() {
         return id;

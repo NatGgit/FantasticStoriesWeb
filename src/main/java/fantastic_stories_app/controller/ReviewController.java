@@ -56,12 +56,32 @@ public class ReviewController {
         return new ModelAndView("see_review", "review", review);
     }
 
-    // dokonczyć. dodać pojawiającą się wiadomość "twoja recenzja została zachowan'a
     @PostMapping(value = "/save")
     public ModelAndView saveReview(@ModelAttribute(value = "review") Review review) {
-        reviewService.saveReview(review);
-        return new ModelAndView("redirect:/review/getAll");
+        Integer storyIdToSet = review.getStory().getId();
+        review.setStory(storyService.getStoryById(storyIdToSet));
+        if (review.getId() == null) {
+            reviewService.saveReview(review);
+        }
+        return new ModelAndView("redirect:/review/seeByItsId", "review.id", review.getId());
     }
+
+    @PostMapping(value = "/edit")
+    public ModelAndView editReview(@ModelAttribute(value = "review.id") String reviewId) {
+        Integer chosenReviewId = Integer.parseInt(reviewId);
+        Review review = reviewService.getReviewById(chosenReviewId);
+        // TODO
+
+        return new ModelAndView("redirect:/review/seeByItsId", "review.id", review.getId());
+    }
+
+//    @RequestMapping(value = "/edit_emp")
+//    public ModelAndView editEmp(@ModelAttribute(value = "emp_id") String id) {
+//        int indexToFind = Integer.parseInt(id);
+//        Emp emp = list.stream().filter(f -> f.getId() == indexToFind).findFirst().get();
+//        EmpSentEmail.sentEmailWhenUserUpdated(emp.getEmail());
+//        return new ModelAndView("emp/empform", "emp", emp);
+//    }
 
     //dokończyć
     @DeleteMapping("/delete")

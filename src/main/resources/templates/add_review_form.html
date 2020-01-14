@@ -26,9 +26,21 @@
     <div>
         <form action="#" th:action="@{/review/save}" th:object="${review}" method="post">
             <input type="hidden" th:field="*{id}"><br>
-            <p> Rate story: <input type="text" th:field="*{rating}"></p>
-            <p><input type="text" th:field="*{title}" placeholder="Review title"></p>
-            <p><input type="text" th:field="*{text}" placeholder="Review text"></p>
+            <p> Rate story: <select name="rating" th:field="*{rating}" required>
+                <option value="0" selected>0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+            </select></p>
+            <p><input type="text" th:field="*{title}" placeholder="Review title" required></p>
+            <p><textarea th:field="*{text}" placeholder="Enter your review text here." rows="5" cols="50"
+                         required></textarea></p>
             <input type="hidden" th:field="*{story.id}"><br>
             <input type="submit" th:value="Save">
         </form>

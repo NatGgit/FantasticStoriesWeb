@@ -9,13 +9,9 @@ import java.util.List;
 @Repository
 public interface StoryRepository extends JpaRepository<Story, Integer> {
     Story findByTitle(String storyTitle);
-
     List<Story> findAllByIssueId(Integer issueId);
-
     List<Story> findAllByIssueNumber(String issueNumber);
-
     List<Story> findAllByAuthorId(Integer authorId);
-
     List<Story> findAllByAuthorLastName(String authorLastName);
     // żeby dostać się do pól powiązanej tabeli musimy użyć dokładnie takich samych nazw jak w tej tabeli,
     // czyli find by + nazwa tabeli + nazwa kolumny

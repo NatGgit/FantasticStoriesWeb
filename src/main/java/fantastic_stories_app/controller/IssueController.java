@@ -40,9 +40,4 @@ public class IssueController {
         return new ModelAndView("all_issues_list", "issueList", issueList);
     }
 
-    @RequestMapping("/backToIssueList")
-    public ModelAndView backToIssueList() {
-        return new ModelAndView("redirect:/issue/getAll");
-    }
-
 }

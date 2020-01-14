@@ -1,6 +1,5 @@
 package fantastic_stories_app.controller;
 
-import org.apache.catalina.servlet4preview.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,10 +18,4 @@ public class IndexController {
         return new ModelAndView("redirect:/");
     }
 
-    //niestety nie przesyła do poprzedniej strony tylko do strony na której właśnie się jest :(
-    @GetMapping("/backToAnyPreviousPage")
-    public String backToAnyPreviousPage(HttpServletRequest request) {
-        String referer = request.getHeader("Referer");
-        return "redirect:" + referer;
-    }
 }

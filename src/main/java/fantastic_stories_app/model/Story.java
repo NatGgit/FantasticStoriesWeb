@@ -8,17 +8,17 @@ import java.util.Objects;
 @Entity
 public class Story {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String title;
     private String originalTitle;
 
     @ManyToOne // z defaultu jest ustawienie fetch type na eager
-    @JoinColumn() //(name = "author_id")  musiałam zakomentować bo wyrzucało błąd - nie widziało tej kolumny
+    @JoinColumn(name = "author_id")
     private Author author;
 
     @ManyToOne // z defaultu jest ustawienie fetch type na eager
-    @JoinColumn() //(name = "issue_id") - musiałam zakomentować bo wyrzucało błąd - nie widziało tej kolumny
+    @JoinColumn(name = "issue_id")
     private Issue issue;
 
     // usunięcie story spowoduje usunięcie review

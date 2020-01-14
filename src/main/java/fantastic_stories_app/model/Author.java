@@ -10,7 +10,8 @@ import java.util.List;
 @Entity
 public class Author {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    //tylko to ustawienie spowoduje że baza danych będzie sama generowała id
     private Integer id;
     private String firstName;
     private String lastName;

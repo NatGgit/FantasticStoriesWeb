@@ -35,22 +35,24 @@
     </div>
     <body>
     <div>
-        <form action="#" th:action="@{/backToAnyPreviousPage}">
-            <button type="submit">Back</button>
+        <form action="#" th:object="${review}" method="put" th:action="@{/edit}">
+            <input type="hidden" th:name="review_id" th:value="${review.id}">
+            <button type="submit">Edit Review</button>
         </form>
     </div>
     </body>
     <body>
     <div>
-        <form action="#" th:action="@{/delete}">
+        <form action="#" th:object="${review}" method="delete" th:action="@{/delete}">
+            <input type="hidden" th:name="review_id" th:value="${review.id}">
             <button type="submit">Delete Review</button>
         </form>
     </div>
     </body>
     <body>
     <div>
-        <form action="#" th:action="@{/edit}">
-            <button type="submit">Edit Review</button>
+        <form action="#" th:action="@{/backToMainPage}">
+            <button type="submit">Take me to main page</button>
         </form>
     </div>
     </body>

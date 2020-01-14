@@ -16,14 +16,6 @@ public class ReviewService {
         return reviewRepository.findOne(reviewId);
     }
 
-    public Review getReviewByStoryId(Integer storyId) {
-        return reviewRepository.findOne(storyId);
-    }
-
-    public Review getReviewByStoryTitle(String storyTitle){
-        return reviewRepository.findByStoryTitle(storyTitle);
-    }
-
     //ewentualnie może zwracać posortowane wyniki
     public List<Review> getAllReviews(){
         return (List<Review>) reviewRepository.findAll();
@@ -37,8 +29,12 @@ public class ReviewService {
         return reviewRepository.save(review);
     }
 
-    public void deleteReview(Review review){
+    public void deleteReview(Review review) {
         reviewRepository.delete(review);
     }
+
+//    public boolean checkIfReviewExists(Integer reviewId){
+//        return reviewRepository.exists(reviewId);
+//    }
 
 }
