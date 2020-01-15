@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:form="http://www.w3.org/1999/html">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <title>Edit Review</title>
+
+</head>
+
+<body bgcolor="#F5F5F5">
+<hr>
+<div class="container">
+    <h2>Edit Review</h2>
+
+    <h4>for story "<span th:text="${review.getStory().getTitle()}"></span>" by
+        <span th:text="${review.getStory().getAuthor().getFirstName() + review.getStory().getAuthor().getLastName()}"></span>
+    </h4>
+
+    <div>
+        <form action="#" th:action="@{/review/save}" th:object="${review}" method="post">
+            <input type="hidden" th:field="*{id}"><br>
+            <p> Rate story: <select name="rating" th:field="*{rating}" required>
+                <option value="0" selected>0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+            </select></p>
+            <p><input type="text" th:field="*{title}" required></p>
+            <p><textarea th:field="*{text}" rows="5" cols="50"
+                         required></textarea></p>
+            <input type="hidden" th:field="*{story.id}"><br>
+            <input type="submit" th:value="Save">
+        </form>
+        <hr>
+    </div>
+
+</div>
+
+</body>
+</html>

@@ -23,22 +23,23 @@
     </h3>
     <p></p>
     <div>
-        <form action="#" th:action="@{/review/save}" th:object="${review}" method="post">
+        <form th:action="@{/review/edit}" th:object="${review}" method="post">
             <p> Rating: "<span th:text="${review.rating}"></span>"</p>
             <hr>
             <p> Review title: "<span th:text="${review.title}"></span>"</p>
             <hr>
             <p> Review text: "<span th:text="${review.text}"></span>"</p>
-            <input type="hidden" th:field="*{id}"><br>
+            <input type="hidden" th:name="review.id" th:value="${review.id}"><br>
+            <button type="submit">Edit Review</button>
         </form>
         <hr>
     </div>
     <body>
     <div>
-        <form action="#" th:object="${review}" method="put" th:action="@{/edit}">
-            <input type="hidden" th:name="review_id" th:value="${review.id}">
-            <button type="submit">Edit Review</button>
-        </form>
+        <!--        <form action="#"  method="post" th:action="@{/review/edit}">-->
+        <!--            <input type="hidden" th:name="review_id" th:value="${review.id}">-->
+        <!--            <button type="submit">Edit Review</button>-->
+        <!--        </form>-->
     </div>
     </body>
     <body>

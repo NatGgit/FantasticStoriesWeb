@@ -60,9 +60,7 @@ public class ReviewController {
     public ModelAndView saveReview(@ModelAttribute(value = "review") Review review) {
         Integer storyIdToSet = review.getStory().getId();
         review.setStory(storyService.getStoryById(storyIdToSet));
-        if (review.getId() == null) {
-            reviewService.saveReview(review);
-        }
+        reviewService.saveReview(review);
         return new ModelAndView("redirect:/review/seeByItsId", "review.id", review.getId());
     }
 
@@ -70,18 +68,8 @@ public class ReviewController {
     public ModelAndView editReview(@ModelAttribute(value = "review.id") String reviewId) {
         Integer chosenReviewId = Integer.parseInt(reviewId);
         Review review = reviewService.getReviewById(chosenReviewId);
-        // TODO
-
-        return new ModelAndView("redirect:/review/seeByItsId", "review.id", review.getId());
+        return new ModelAndView("edit_review_form", "review", review);
     }
-
-//    @RequestMapping(value = "/edit_emp")
-//    public ModelAndView editEmp(@ModelAttribute(value = "emp_id") String id) {
-//        int indexToFind = Integer.parseInt(id);
-//        Emp emp = list.stream().filter(f -> f.getId() == indexToFind).findFirst().get();
-//        EmpSentEmail.sentEmailWhenUserUpdated(emp.getEmail());
-//        return new ModelAndView("emp/empform", "emp", emp);
-//    }
 
     //dokończyć
     @DeleteMapping("/delete")

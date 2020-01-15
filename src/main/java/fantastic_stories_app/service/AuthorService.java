@@ -21,7 +21,4 @@ public class AuthorService {
         return authorRepository.findOne(id);
     }
 
-    public Author getAuthorByName(String lastName){
-        return authorRepository.findByLastName(lastName);
-    }
 }

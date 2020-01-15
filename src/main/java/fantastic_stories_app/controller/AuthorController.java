@@ -20,16 +20,6 @@ public class AuthorController {
     public AuthorController() {
     }
 
-//    @GetMapping("/getById")
-//    public Author getAuthorById(Integer id) throws NoSuchElementException {
-//        return authorService.getAuthorById(id);
-//    }
-//
-//    @GetMapping("/getByName")
-//    public Author getAuthorByName(String lastName) throws NoSuchElementException {
-//        return authorService.getAuthorByName(lastName);
-//    }
-
     @GetMapping("/getAll")
     public ModelAndView getAllAuthors(Model model) {
         List<Author> authorList = authorService.getAllAuthors();
