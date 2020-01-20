@@ -37,7 +37,7 @@
                 <td>
                     <form action="#" th:action="@{/story/getAllByAuthor}" th:object="${author.id}" method="get">
                         <input type="hidden" th:name="author.id" th:value="${author.id}">
-                        <button type="submit">See stories by this author</button>
+                        <button class="btn btn-info" type="submit">See stories by this author</button>
                     </form>
                 </td>
             </tr>

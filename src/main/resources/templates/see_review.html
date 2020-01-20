@@ -15,49 +15,49 @@
 </head>
 
 <body bgcolor="#F5F5F5">
-<hr>
 <div class="container">
     <h3>Review for story "<span th:text="${review.getStory().getTitle()}">
        </span>" by <span
-            th:text="${review.getStory().getAuthor().getFirstName() + review.getStory().getAuthor().getLastName()}"></span>
+            th:text="${review.getStory().getAuthor().getFirstName() + ' ' + review.getStory().getAuthor().getLastName()}"></span>
     </h3>
     <p></p>
     <div>
+        <hr>
         <form th:action="@{/review/edit}" th:object="${review}" method="post">
-            <p> Rating: "<span th:text="${review.rating}"></span>"</p>
+            <p class="text-justify"><span class="font-weight-bold"> Rating: </span><span
+                    th:text="${review.rating}"></span></p>
             <hr>
-            <p> Review title: "<span th:text="${review.title}"></span>"</p>
+            <p class="text-justify"><span class="font-weight-bold"> Review title: </span><span
+                    th:text="${review.title}"></span></p>
             <hr>
-            <p> Review text: "<span th:text="${review.text}"></span>"</p>
+            <p class="text-justify"><span class="font-weight-bold"> Review text: </span><span
+                    th:text="${review.text}"></span></p>
+            <hr>
             <input type="hidden" th:name="review.id" th:value="${review.id}"><br>
-            <button type="submit">Edit Review</button>
+            <button class="btn btn-primary" type="submit">Edit Review</button>
         </form>
         <hr>
     </div>
     <body>
     <div>
-        <!--        <form action="#"  method="post" th:action="@{/review/edit}">-->
-        <!--            <input type="hidden" th:name="review_id" th:value="${review.id}">-->
-        <!--            <button type="submit">Edit Review</button>-->
-        <!--        </form>-->
-    </div>
-    </body>
-    <body>
-    <div>
-        <form action="#" th:object="${review}" method="delete" th:action="@{/delete}">
-            <input type="hidden" th:name="review_id" th:value="${review.id}">
-            <button type="submit">Delete Review</button>
+        <form action="#" th:object="${review}" method="get" th:action="@{/review/delete}">
+            <input type="hidden" th:name="review.id" th:value="${review.id}">
+            <button class="btn btn-danger" type="submit">Delete Review</button>
         </form>
     </div>
+    <hr>
     </body>
     <body>
     <div>
         <form action="#" th:action="@{/backToMainPage}">
-            <button type="submit">Take me to main page</button>
+            <button class="btn btn-secondary" type="submit">Main Page</button>
         </form>
     </div>
     </body>
-
+    <hr>
+    <form action="#" th:action="@{/review/backToMainList}">
+        <button class="btn btn-secondary" type="submit">All Reviews List</button>
+    </form>
 </div>
 
 </body>

@@ -1,15 +1,15 @@
 INSERT INTO author (first_name, last_name)
-VALUES ('Łukasz ', 'Malinowski'),
-       ('Krzysztof ', 'Rewiuk'),
-       ('Beatrycze ', 'Nowicka'),
-       ('Max ', 'Gladstone'),
-       ('Michael ', 'Swanwick'),
-       ('Vina Jie-Min ', 'Prasad'),
-       ('Przemysław ', 'Karbowski'),
-       ('Wojciech ', 'Zembaty'),
-       ('Andriej ', 'Kokoulin'),
-       ('Mark ', 'Lawrence'),
-       ('Maciej ', 'Jesionowski');
+VALUES ('Łukasz', 'Malinowski'),
+       ('Krzysztof', 'Rewiuk'),
+       ('Beatrycze', 'Nowicka'),
+       ('Max', 'Gladstone'),
+       ('Michael', 'Swanwick'),
+       ('Vina Jie-Min', 'Prasad'),
+       ('Przemysław', 'Karbowski'),
+       ('Wojciech', 'Zembaty'),
+       ('Andriej', 'Kokoulin'),
+       ('Mark', 'Lawrence'),
+       ('Maciej', 'Jesionowski');
 
 INSERT INTO issue (number, publication_year)
 VALUES ('05/2019', 2019),

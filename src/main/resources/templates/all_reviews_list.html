@@ -34,19 +34,21 @@
             <tr data-th-each="review : ${reviewList}">
                 <td th:text="${review.id}"></td>
                 <td th:text="${review.getStory().getTitle()}"></td>
-                <td th:text="${review.getStory().getAuthor().getFirstName()
-                    + review.getStory().getAuthor().getLastName()}"></td>
+                <td th:text="${review.getStory().getAuthor().getFirstName() + ' ' + review.getStory().getAuthor().getLastName()}"></td>
                 <td th:text="${review.title}"></td>
                 <td>
                     <form action="#" th:action="@{/review/seeByItsId}" th:object="${review.id}" method="get">
                         <input type="hidden" th:name="review.id" th:value="${review.id}">
-                        <button type="submit">See review</button>
+                        <button class="btn btn-info" type="submit">See review</button>
                     </form>
                 </td>
             </tr>
             </tbody>
         </table>
     </div>
+    <form action="#" th:action="@{/story/backToMainList}">
+        <button class="btn btn-secondary" type="submit">All Stories List</button>
+    </form>
 </div>
 </body>
 </html>

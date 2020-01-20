@@ -14,8 +14,8 @@ public class Review {
     private String title;
     private String text;
 
-    //usunięcie review nie spowoduje usunięcia story
-    @OneToOne(cascade = CascadeType.PERSIST)
+    // musiałam usunąć wszelką informację o cascadeType (tu i w Story) bo nie działało usuwanie Review
+    @OneToOne
     // ustawienie unique=true nie pozwala dodać więcej niż 1 review dla 1 story
     @JoinColumn(name = "story_id", unique = true)
     private Story story;

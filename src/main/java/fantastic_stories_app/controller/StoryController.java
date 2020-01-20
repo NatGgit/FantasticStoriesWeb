@@ -59,4 +59,9 @@ public class StoryController {
         return new ModelAndView("all_stories_list", "storyList", storyList);
     }
 
+    @RequestMapping("/backToMainList")
+    public ModelAndView goBack() {
+        return new ModelAndView("redirect:/story/getAll");
+    }
+
 }

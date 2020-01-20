@@ -36,16 +36,18 @@
                 <td th:text="${story.id}"></td>
                 <td th:text="${story.title}"></td>
                 <td th:text="${story.originalTitle}"></td>
-                <td th:text="${story.getAuthor().getFirstName() + story.getAuthor().getLastName()}"></td>
+                <td th:text="${story.getAuthor().getFirstName() + ' ' + story.getAuthor().getLastName()}"></td>
                 <td th:text="${story.getIssue().getNumber()}"></td>
                 <td>
                     <form action="#" th:action="@{/review/openForm}" th:object="${story.id}" method="post">
                         <input type="hidden" th:name="story.id" th:value="${story.id}">
-                        <button type="submit" th:if="${story.getReview() == null}">Add Review</button>
+                        <button class="btn btn-primary" type="submit" th:if="${story.getReview() == null}">Add Review
+                        </button>
                     </form>
                     <form action="#" th:action="@{/review/seeByStoryId}" th:object="${story.id}" method="get">
                         <input type="hidden" th:name="story.id" th:value="${story.id}">
-                        <button type="submit" th:if="${story.getReview() != null}">See Review</button>
+                        <button class="btn btn-success" type="submit" th:if="${story.getReview() != null}">See Review
+                        </button>
                     </form>
                 </td>
             </tr>

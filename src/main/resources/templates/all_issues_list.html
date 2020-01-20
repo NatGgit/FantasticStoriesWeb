@@ -37,7 +37,7 @@
                 <td>
                     <form action="#" th:action="@{/story/getAllByIssue}" th:object="${issue.id}" method="get">
                         <input type="hidden" th:name="issue.id" th:value="${issue.id}">
-                        <button type="submit">See stories in this issue</button>
+                        <button class="btn btn-info" type="submit">See stories in this issue</button>
                     </form>
                 </td>
             </tr>

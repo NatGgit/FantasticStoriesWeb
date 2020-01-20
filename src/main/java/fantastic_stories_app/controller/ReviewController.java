@@ -60,6 +60,8 @@ public class ReviewController {
     public ModelAndView saveReview(@ModelAttribute(value = "review") Review review) {
         Integer storyIdToSet = review.getStory().getId();
         review.setStory(storyService.getStoryById(storyIdToSet));
+        // moja metoda odwołuje się do wbudowanej metody save z CRUDRepository, która sama sprawdza, czy dany obiekt istnieje
+        //(na podstawie jego id) i w zależności od wyniku tego sprawdzenia albo tworzy nowy obiekt albo "nadpisuje" stary
         reviewService.saveReview(review);
         return new ModelAndView("redirect:/review/seeByItsId", "review.id", review.getId());
     }
@@ -71,10 +73,16 @@ public class ReviewController {
         return new ModelAndView("edit_review_form", "review", review);
     }
 
-    //dokończyć
-    @DeleteMapping("/delete")
-    public ModelAndView deleteReview(@ModelAttribute(value = "review") Review review) {
-        reviewService.deleteReview(review);
+    @GetMapping("/delete")
+    public ModelAndView deleteReview(@ModelAttribute(value = "review.id") String reviewId) {
+        Integer chosenReviewId = Integer.parseInt(reviewId);
+        Review reviewToDelete = reviewService.getReviewById(chosenReviewId);
+        reviewService.deleteReview(reviewToDelete);
+        return new ModelAndView("redirect:/review/getAll");
+    }
+
+    @RequestMapping("/backToMainList")
+    public ModelAndView goBack() {
         return new ModelAndView("redirect:/review/getAll");
     }
 

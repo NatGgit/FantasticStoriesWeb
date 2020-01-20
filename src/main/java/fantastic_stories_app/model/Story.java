@@ -21,9 +21,8 @@ public class Story {
     @JoinColumn(name = "issue_id")
     private Issue issue;
 
-    // usunięcie story spowoduje usunięcie review
-    //nie tworzy tej kolumny w bazie
-    @OneToOne(mappedBy = "story", cascade = CascadeType.ALL)
+    // musiałam usunąć wszelką informację o cascadeType bo nie działało usuwanie Review
+    @OneToOne(mappedBy = "story")
     private Review review;
 
     public Story() {

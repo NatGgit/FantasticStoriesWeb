@@ -19,7 +19,8 @@
 
     <div class="row">
         <div id="title">
-            <h3>Stories by <span th:text="${model.author.getFirstName() + model.author.getLastName()}"></span></h3>
+            <h3>Stories by <span th:text="${model.author.getFirstName() + ' ' + model.author.getLastName()}"></span>
+            </h3>
         </div>
         <table class="table table-striped">
             <thead>
@@ -39,11 +40,13 @@
                 <td>
                     <form action="#" th:action="@{/review/openForm}" th:object="${story.id}" method="post">
                         <input type="hidden" th:name="story.id" th:value="${story.id}">
-                        <button type="submit" th:if="${story.getReview() == null}">Add Review</button>
+                        <button class="btn btn-primary" type="submit" th:if="${story.getReview() == null}">Add Review
+                        </button>
                     </form>
                     <form action="#" th:action="@{/review/seeByStoryId}" th:object="${story.id}" method="get">
                         <input type="hidden" th:name="story.id" th:value="${story.id}">
-                        <button type="submit" th:if="${story.getReview() != null}">See Review</button>
+                        <button class="btn btn-success" type="submit" th:if="${story.getReview() != null}">See Review
+                        </button>
                     </form>
                 </td>
             </tr>
@@ -52,7 +55,7 @@
     </div>
     <body>
     <form action="#" th:action="@{/backToMainPage}">
-        <button type="submit">Take me to main page</button>
+        <button class="btn btn-secondary" type="submit">Take me to main page</button>
     </form>
     </body>
 </div>
